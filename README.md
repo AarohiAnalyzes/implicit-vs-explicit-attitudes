@@ -39,30 +39,28 @@ the gap: Samsung's reviews carry disproportionately more sadness/regret
 language, suggesting the implicit-vs-explicit gap is emotion-driven, not
 valence-driven.
 
-![WEAT heatmap of brand-attribute associations](results/weat_heatmap.png)
-
 ---
 
 ## Methodology
 
-1. **Data preparation** — Filtered the Amazon Unlocked Mobile dataset
+1. **Data preparation**: Filtered the Amazon Unlocked Mobile dataset
    (413,840 reviews → 127,820 brand-relevant reviews for Apple and Samsung).
-2. **Explicit analysis** — Independent-samples *t*-test on star ratings;
+2. **Explicit analysis**: Independent-samples *t*-test on star ratings;
    effect interpreted alongside practical magnitude.
-3. **Word embeddings** — Trained a skip-gram Word2Vec model on the cleaned
+3. **Word embeddings**: Trained a skip-gram Word2Vec model on the cleaned
    review corpus (`min_count=20`, 20 epochs, vocabulary = 4,734 words,
    `seed=42` and `workers=1` for full reproducibility).
-4. **Implicit analysis (WEAT)** — Implemented the Word Embedding Association
+4. **Implicit analysis (WEAT)**: Implemented the Word Embedding Association
    Test from scratch following Caliskan et al. (2017):
    - Cosine-similarity associations between target words (brands) and
      attribute words (positive/negative valence)
    - Effect size computed with population standard deviation (`ddof=0`),
      matching the original specification
    - Two-sided permutation test over all valid target-set permutations
-5. **Validation** — Checked brand-neighbor structure (`iphone` ↔ `galaxy`,
+5. **Validation**: Checked brand-neighbor structure (`iphone` ↔ `galaxy`,
    `apple`, `phone`) and the valence axis (`love` ↔ `great` similarity
    substantially exceeds `love` ↔ `hate`) before computing the main effect.
-6. **Discrete-emotion analysis** — Mapped each brand's embedding to
+6. **Discrete-emotion analysis**: Mapped each brand's embedding to
    Plutchik's eight basic emotion categories, then share-normalised to
    recover each brand's *emotional profile* independent of overall
    association magnitude.
@@ -74,7 +72,7 @@ valence-driven.
   - **Permutation-test power.** With 4 target words per brand, only 70
     permutations are possible, so the permutation *p*-value has limited
     statistical power. The effect size is therefore the more informative
-    quantity than the *p*-value alone — a structural limit of the test,
+    quantity than the *p*-value alone: a structural limit of the test,
     not evidence against the effect.
   - **Lexicon coverage.** Brand-attribution and emotion word lists are
     finite and English-only; results may not transfer to multilingual
@@ -108,8 +106,7 @@ valence-driven.
 
 ## Author
 
-**Aarohi Mistry** — M.Sc. Data Science, Università degli Studi di
-Milano-Bicocca
+**Aarohi Mistry**: M.Sc. Data Science, Università degli Studi di Milano-Bicocca
 Course: *Big Data in Behavioural Psychology* (Prof. Michela Vezzoli)
 
 📧 [aarohimistry1106@gmail.com](mailto:aarohimistry1106@gmail.com)

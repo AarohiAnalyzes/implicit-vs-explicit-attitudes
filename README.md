@@ -1,4 +1,4 @@
-# Stars vs. Semantics: A WEAT Analysis of Implicit and Explicit Brand Attitudes
+An Analysis of Implicit and Explicit Brand Attitudes
 
 A computational study of dissociations between **explicit** consumer attitudes
 (star ratings) and **implicit** consumer attitudes (word-embedding semantics)
